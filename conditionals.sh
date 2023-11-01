@@ -19,15 +19,16 @@ directories=("1" "2" "3" "4")
 
 
 for dir_name in "${directories[@]}"; do
-  dir_path="$desktop_dir/$dir_name"
+  dir_path="$target_folder/$dir_name"
 
   if [ ! -d "$dir_path" ]; then
     mkdir -p "$dir_path"
     if [ $? -eq 0 ]; then
       echo "Created directory: $dir_path"
+    else
+      echo "Failed to create directory: $dir_path"
+    fi
   else
     echo "Directory already exists: $dir_path"
   fi
-fi
-
-done 
+done
